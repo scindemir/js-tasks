@@ -1,7 +1,12 @@
 const openButton = document.querySelector('#openOverlay');
 const body = document.body;
+const successModal = createModal("Hello, <b>World</b>!");
 
-openButton.addEventListener('click', e => {
+openButton.addEventListener('click', (e) => {
+  body.appendChild(successModal);
+})
+
+function createModal(content) {
   const overlayElement = document.createElement('div');
   overlayElement.classList.add('overlay');
 
@@ -18,7 +23,7 @@ openButton.addEventListener('click', e => {
   const contentElement = document.createElement('div');
   contentElement.classList.add('content');
 
-  contentElement.innerHTML = 'Hello, <b>world</b>!';
+  contentElement.innerHTML = content;
 
   const closeElement = document.createElement('a');
   closeElement.classList.add('close');
@@ -34,5 +39,6 @@ openButton.addEventListener('click', e => {
   overlayElement.appendChild(containerElement);
   containerElement.appendChild(closeElement);
   containerElement.appendChild(contentElement);
-  body.appendChild(overlayElement);
-})
+  
+  return overlayElement;
+}
