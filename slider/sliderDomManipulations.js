@@ -1,11 +1,13 @@
 const leftBtn = document.querySelector("#left");
 const rightBtn = document.querySelector("#right");
 const itemsList = document.querySelector("#items");
+const computedStyle = getComputedStyle(itemsList);
 
-let currentRight = 0;
 
 rightBtn.addEventListener('click', e => {
   e.preventDefault();
+
+  let currentRight = parseInt(computedStyle.right); 
   if (currentRight < 500) {
     currentRight += 100;
     itemsList.style.right = `${currentRight}px`;
@@ -15,6 +17,8 @@ rightBtn.addEventListener('click', e => {
 
 leftBtn.addEventListener('click', e => {
   e.preventDefault();
+
+  let currentRight = parseInt(computedStyle.right);
   if (currentRight >= 100 ) {
     currentRight -= 100;
     itemsList.style.right = `${currentRight}px`;
