@@ -40,17 +40,11 @@ colorSelector.addEventListener('change', e => {
     const currentBlock = items[i];
 
     if (changed) {
-      if (i % 2 === 0) {
-      colorTheBlock(items[i], color);
-      } else {
-        colorTheBlock(currentBlock, '#fff');
-      }
+      const colorToApply = i % 2 === 0 ? color : '#fff';
+      colorTheBlock(currentBlock, colorToApply);
     } else {
-      if (i % 2 !== 0) {
-        colorTheBlock(items[i], color);
-      }else {
-        colorTheBlock(currentBlock, '#fff');
-      }
+      const colorToApply = i % 2 !== 0 ? color : '#fff';
+      colorTheBlock(currentBlock, colorToApply);
     }
   }
 })
